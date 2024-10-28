@@ -125,11 +125,18 @@ const Header = () => {
               color="inherit"
               aria-label="open drawer"
               onClick={drawerToggle}
-              sx={{ mr: 2, display: { xs: "block", sm: "none" } }}
+              sx={{
+                mr: { xs: "", sm: 2 },
+                display: { xs: "block", sm: "none" },
+              }}
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" component="div">
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ fontSize: { xs: "12px", sm: "20px" }, fontWeight: "bold" }}
+            >
               MoviesDB
             </Typography>
 

@@ -153,13 +153,18 @@ const MovieDetails = () => {
             </Grid2>
           </Box>
         </Box>
-
+        <Box pl={6} color={"#fff"}>
+          {" "}
+          <Typography variant="h5">Cast</Typography>{" "}
+        </Box>{" "}
         <Box
           display={"flex"}
           p={2}
-          sx={{ flexWrap: "wrap", justifyContent: "space-evenly" }}
+          sx={{
+            flexWrap: "wrap",
+            justifyContent: "space-evenly",
+          }}
         >
-          {" "}
           {cast.map((actor) => (
             <Card
               sx={{
