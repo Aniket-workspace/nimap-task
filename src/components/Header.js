@@ -136,6 +136,7 @@ const Header = () => {
               variant="h6"
               component="div"
               sx={{ fontSize: { xs: "12px", sm: "20px" }, fontWeight: "bold" }}
+              mr={1}
             >
               MoviesDB
             </Typography>
