@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -70,7 +70,6 @@ const Header = () => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    navigate(newValue);
   };
 
   const drawewr = (
@@ -94,9 +93,17 @@ const Header = () => {
           indicatorColor="secondary"
           orientation="vertical"
         >
-          <Tab value="/" label="Popular" />
-          <Tab value="/top-rated" label="Top Rated" />
-          <Tab value="/upcoming" label="Upcoming" />
+          <Tab value="/" label="Popular" onClick={() => navigate("/")} />
+          <Tab
+            value="/top-rated"
+            label="Top Rated"
+            onClick={() => navigate("/top-rated")}
+          />
+          <Tab
+            value="/upcoming"
+            label="Upcoming"
+            onClick={() => navigate("/upcoming")}
+          />
         </Tabs>
       </Box>
     </Box>
@@ -134,16 +141,25 @@ const Header = () => {
                   textColor="secondary"
                   indicatorColor="secondary"
                 >
-                  <Tab value="/" label="Popular" />
-                  <Tab value="/top-rated" label="Top Rated" />
-                  <Tab value="/upcoming" label="Upcoming" />
+                  <Tab
+                    value="/"
+                    label="Popular"
+                    onClick={() => navigate("/")}
+                  />
+                  <Tab
+                    value="/top-rated"
+                    label="Top Rated"
+                    onClick={() => navigate("/top-rated")}
+                  />
+                  <Tab
+                    value="/upcoming"
+                    label="Upcoming"
+                    onClick={() => navigate("/upcoming")}
+                  />
                 </Tabs>
               </Box>
 
-              <form
-                // onSubmit={handleSubmit}
-                style={{ display: "flex", alignItems: "center" }}
-              >
+              <form style={{ display: "flex", alignItems: "center" }}>
                 <Search>
                   <SearchIconWrapper>
                     <SearchIcon color="secondary" />
@@ -157,7 +173,6 @@ const Header = () => {
 
                 <Box p={1}>
                   <Button
-                    // type="submit"
                     variant="outlined"
                     size="small"
                     sx={{ color: "#fff", borderColor: "#fff" }}

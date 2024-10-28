@@ -43,6 +43,7 @@ const MovieDetails = () => {
     }
 
     fetchMovieDetails();
+    window.scroll(0, 0);
   }, [id]);
 
   if (!details || cast.length === 0) {
@@ -69,7 +70,6 @@ const MovieDetails = () => {
     overview,
     poster_path,
     backdrop_path,
-    belongs_to_collection,
   } = details;
   const formattedDate = new Date(release_date).toLocaleDateString("en-US", {
     month: "long",

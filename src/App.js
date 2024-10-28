@@ -8,6 +8,7 @@ import Upcoming from "./components/pages/Upcoming";
 import { ThemeProvider } from "@mui/material/styles";
 import { darkTheme } from "./Theme";
 import Search from "./components/pages/Search";
+import PageNotFound from "./components/pages/PageNotFound";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/upcoming" element={<Upcoming />} />
             <Route path="/movie/:id" element={<MovieDetails />} />
             <Route path="/search/:key" element={<Search />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
       </div>
