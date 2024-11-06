@@ -34,7 +34,7 @@ const TopRated = () => {
         ))}
       </Box>
 
-      <PaginationComp setPage={setPage} pageNumber={numberOfPages} />
+      <PaginationComp setPage={setPage} totalPages={numberOfPages} />
     </>
   );
 };

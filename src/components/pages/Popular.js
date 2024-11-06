@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./Cards";
-import { Box } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import PaginationComp from "../Pagination";
+import { useNavigate } from "react-router-dom";
 
 const Popular = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [numberOfPages, setNumberOfPages] = useState();
+  const [handelPage, setHandelPage] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllData();
@@ -20,21 +23,54 @@ const Popular = () => {
     console.log(res.results);
     setData(res.results);
     setNumberOfPages(res.total_pages);
+    setHandelPage(page);
   }
 
   return (
     <>
-      <Box
-        display={"flex"}
-        p={2}
-        sx={{ flexWrap: "wrap", justifyContent: "space-evenly" }}
-      >
-        {data?.map((item) => (
-          <Cards {...item} key={item.id} />
-        ))}
-      </Box>
-
-      <PaginationComp setPage={setPage} pageNumber={numberOfPages} />
+      {handelPage > 500 ? (
+        <>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "#fff",
+              height: "100vh",
+              marginTop: "auto",
+            }}
+          >
+            <Box sx={{ textAlign: "center" }}>
+              <Typography variant="h5">Page dosen't exist</Typography>
+              <Button
+                variant="outlined"
+                color="secondary"
+                sx={{ marginTop: "20px" }}
+                onClick={() => {
+                  navigate("/");
+                  setPage(1);
+                }}
+              >
+                Go to home page
+              </Button>
+            </Box>
+          </Box>
+          {/* <PaginationComp setPage={setPage} totalPages={numberOfPages} /> */}
+        </>
+      ) : (
+        <>
+          <Box
+            display={"flex"}
+            p={2}
+            sx={{ flexWrap: "wrap", justifyContent: "space-evenly" }}
+          >
+            {data?.map((item) => (
+              <Cards {...item} key={item.id} />
+            ))}
+          </Box>
+          <PaginationComp setPage={setPage} totalPages={numberOfPages} />
+        </>
+      )}
     </>
   );
 };

@@ -2,7 +2,7 @@
 import { Pagination, Stack } from "@mui/material";
 import React from "react";
 
-const PaginationComp = ({ setPage, pageNumber }) => {
+const PaginationComp = ({ setPage, totalPages }) => {
   const handleChange = (pages) => {
     setPage(pages);
     window.scroll(0, 0);
@@ -20,7 +20,7 @@ const PaginationComp = ({ setPage, pageNumber }) => {
             justifyContent: "center",
           }}
           size="small"
-          count={pageNumber}
+          count={totalPages}
         />
       </Stack>
     </>
